@@ -6,7 +6,7 @@
 /*   By: seunkim <seunkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/12 01:48:34 by seunkim           #+#    #+#             */
-/*   Updated: 2020/03/12 01:54:11 by seunkim          ###   ########.fr       */
+/*   Updated: 2020/03/14 17:19:03 by seunkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,9 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);	
+char	*ft_strndup(char const *s, int n);
 
 #endif
