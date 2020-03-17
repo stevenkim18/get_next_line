@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seunkim <seunkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 03:25:34 by seunkim           #+#    #+#             */
-/*   Updated: 2020/03/17 21:02:26 by seunkim          ###   ########.fr       */
+/*   Updated: 2020/03/18 01:26:26 by seunkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_error(char **buff, int fd)
 		return (0);
 	if (!(*buff = (char*)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
 		return (0);
-	if (fd <= -1 || fd >= 6)
+	if (fd <= -1 || fd >= 100)
 		return (0);
 	return (1);
 }
@@ -41,21 +41,21 @@ int	getlinestr(char **line, char **data)
 int	get_next_line(int fd, char **line)
 {
 	char		*buff;
-	static char	*data;
+	static char	*data[4096];
 	ssize_t		bytes;
 	
 	if (!(check_error(&buff, fd)))
 		return (-1);
-	if (!data)
+	if (!data[fd])
 	{
-		data = "";
+		data[fd] = "";
 		while ((bytes = read(fd, buff, BUFFER_SIZE)) > 0)
 		{
 			buff[bytes] = '\0';
-			data = ft_strjoin(data, buff);
+			data[fd] = ft_strjoin(data[fd], buff);
 		}
 	}
 	free(buff);
-	return (getlinestr(&*line, &data));
+	return (getlinestr(&*line, &data[fd]));
 }
 
