@@ -22,6 +22,7 @@ int		check_error(char **buff, int fd)
 		return (0);
 	return (1);
 }
+
 int		getlinestr(char **line, char **data, char **first_data)
 {
 	if (ft_strchr(*data, '\n'))
