@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-int	check_error(char **buff, int fd)
+int		check_error(char **buff, int fd)
 {
 	if (BUFFER_SIZE <= 0)
 		return (0);
@@ -22,7 +22,7 @@ int	check_error(char **buff, int fd)
 		return (0);
 	return (1);
 }
-int	getlinestr(char **line, char **data, char **first_data)
+int		getlinestr(char **line, char **data, char **first_data)
 {
 	if (ft_strchr(*data, '\n'))
 	{
@@ -39,13 +39,13 @@ int	getlinestr(char **line, char **data, char **first_data)
 	}
 }
 
-int	get_next_line(int fd, char **line)
+int		get_next_line(int fd, char **line)
 {
 	char		*buff;
 	static char	*data[8192];
 	char		*tmp;
 	ssize_t		bytes;
-	
+
 	if (!(check_error(&buff, fd)))
 		return (-1);
 	if (!data[fd])
@@ -63,4 +63,3 @@ int	get_next_line(int fd, char **line)
 	free(buff);
 	return (getlinestr(&*line, &data[fd], &data[4096 + fd]));
 }
-

@@ -67,7 +67,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char		*ft_strndup(char const *s, int n)
 {
-	int	idx;
+	int		idx;
 	char	*ptr;
 
 	idx = 0;

@@ -23,6 +23,6 @@ char	*ft_strchr(char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);	
 char	*ft_strndup(char const *s, int n);
 
-int	get_next_line(int fd, char **line);
+int	    get_next_line(int fd, char **line);
 
 #endif
