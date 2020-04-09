@@ -6,7 +6,7 @@
 /*   By: seunkim <seunkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 03:25:34 by seunkim           #+#    #+#             */
-/*   Updated: 2020/03/18 14:16:46 by seunkim          ###   ########.fr       */
+/*   Updated: 2020/04/09 18:09:05 by seunkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int		get_next_line(int fd, char **line)
 	char		*tmp;
 	ssize_t		bytes;
 
+	if (line == NULL)
+		return (-1);
 	if (!(check_error(&buff, fd)))
 		return (-1);
 	if (!data[fd])

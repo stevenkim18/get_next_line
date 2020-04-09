@@ -6,7 +6,7 @@
 /*   By: seunkim <seunkim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 03:25:34 by seunkim           #+#    #+#             */
-/*   Updated: 2020/03/18 15:02:26 by seunkim          ###   ########.fr       */
+/*   Updated: 2020/04/09 18:09:25 by seunkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		check_error(char **buff, int fd)
 int		getlinestr(char **line, char **data, char **first_data)
 {
 	if (ft_strchr(*data, '\n'))
-	{
+	{	
 		*line = ft_strndup(*data, ft_strchr(*data, '\n') - *data);
 		*data = ft_strchr(*data, '\n') + 1;
 		return (1);
@@ -46,7 +46,9 @@ int		get_next_line(int fd, char **line)
 	static char	*data[8192];
 	char		*tmp;
 	ssize_t		bytes;
-
+	
+	if (line == NULL)
+		return (-1);
 	if (!(check_error(&buff, fd)))
 		return (-1);
 	if (!data[fd])
